@@ -1,17 +1,76 @@
 ---
-
+import '../styles/global.css'
+import Cursor from "../3d/cursor.tsx";
+import nodeBuilder from "three/src/nodes/core/NodeBuilder";
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
+
+        <script>
+            import {gsap} from "gsap";
+            import {SplitText} from "gsap/SplitText";
+            import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
+            import { Flip } from "gsap/Flip";
+
+            gsap.registerPlugin(Flip);
+            gsap.registerPlugin(SplitText, ScrambleTextPlugin);
+            gsap.registerPlugin(SplitText);
+
+            const tl = gsap.timeline();
+
+            const splitHeader = SplitText.create("h1", {
+                type: "chars",
+                autoSplit: true});
+
+            const splitBody = SplitText.create("p", {
+                type: "lines",
+                autoSplit: true});
+
+            gsap.from("#title", {
+                scrambleText: "yesac kenosam",
+                duration: 1,
+            }).then(() => {
+                gsap.to("#header", {
+                    height: "9vh",
+                    overflowY: "auto",
+                    delay: 1
+                });
+            })
+
+
+        </script>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="overflow-y-hidden">
+        <div class="p-3 h-[101vh] flex items-center border-b-1 justify-center" id="header">
+            <h1 class="text-5xl" id="title">Casey Masonek</h1> <h1 class="text-5xl" id="header"></h1>
+
+        </div>
+        <div class="flex flex-row w-full h-[91vh] relative">
+            <div class="absolute top-0 w-1/2 overflow-clip">
+                <div class="flex w-[140%] rotate-0 left-[-3px] flex-wrap items-center">
+                    {Array.from({length: 1000}).map((item) => {
+                        return ["Programmer", "Musician", "Athlete", "Learner", "Friend"].map(item => (
+                                <span class="abw-fit text-xl text-neutral-700">{item}&nbsp;·&nbsp;</span>
+                        ))
+                    })}
+                </div>
+            </div>
+            <div class="w-1/2 flex justify-center items-center">
+                <Cursor client:only={"react"} />
+            </div>
+            <div class="border-l-1 p-3">
+                cool stuff
+            </div>
+        </div>
 	</body>
 </html>

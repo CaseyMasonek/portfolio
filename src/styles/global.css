@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+    --color-main: #0c0b0b;
+    --color-primary: #d2d2d2;
+}
+
+@layer base {
+    body {
+        @apply bg-main text-primary font-[Inter];
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-[BBH_Bartle];
+    }
+}
+
+canvas {
+    background: transparent !important;
+}
