@@ -1,0 +1,25 @@
+---
+import {Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card.tsx";
+import {render} from "astro:content";
+const {title,path,Icon} = Astro.props;
+---
+
+<div class="h-fit p-[2px] rounded-xl hover:bg-gradient-to-r from-red-500 via-purple-500 to-blue-500">
+    <a href={path}>
+        <Card className="grow">
+            <CardHeader>
+                <CardTitle>
+                    {title}
+                </CardTitle>
+                <CardAction>
+                    <Icon />
+                </CardAction>
+            </CardHeader>
+            <CardContent>
+                <CardDescription>
+                    <slot />
+                </CardDescription>
+            </CardContent>
+        </Card>
+    </a>
+</div>

@@ -3,6 +3,7 @@ import Cursor from "../3d/cursor.tsx";
 import {Card,CardHeader,CardTitle,CardContent,CardAction,CardDescription,CardFooter} from "@/components/ui/card.tsx";
 import MainLayout from "@/layouts/mainLayout.astro";
 import {CodeXmlIcon, MusicIcon, SportShoeIcon, PlusIcon} from "@lucide/astro";
+import HomeScreenNav from "@/components/homeScreenNav.astro";
 ---
 
 
@@ -58,88 +59,24 @@ import {CodeXmlIcon, MusicIcon, SportShoeIcon, PlusIcon} from "@lucide/astro";
                 <hr class="my-3" />
 
                 <div class="w-full grow grid flex-row grid-cols-2 gap-5">
-                    <div class="h-fit p-[2px] rounded-xl hover:bg-gradient-to-r from-red-500 via-purple-500 to-blue-500">
-                        <a href="/programming">
-                            <Card className="grow">
-                                <CardHeader>
-                                    <CardTitle>
-                                        Programmer
-                                    </CardTitle>
-                                    <CardAction>
-                                        <CodeXmlIcon />
-                                    </CardAction>
-                                </CardHeader>
-                                <CardContent>
-                                    <CardDescription>
-                                        While only really beginning 4 years ago, I've really been coding my whole life.
-                                    </CardDescription>
-                                </CardContent>
-                            </Card>
-                        </a>
-                    </div>
+                    <HomeScreenNav title="Programmer" Icon={CodeXmlIcon} path="/programming">
+                        While only really beginning 4 years ago, I've really been coding my whole life.
+                    </HomeScreenNav>
 
-                    <div class="h-fit p-[2px] rounded-xl hover:bg-gradient-to-r from-red-500 via-purple-500 to-blue-500">
-                        <a href="/music">
-                            <Card className="grow">
-                                <CardHeader>
-                                    <CardTitle>
-                                        Musician
-                                    </CardTitle>
-                                    <CardAction>
-                                        <MusicIcon />
-                                    </CardAction>
-                                </CardHeader>
-                                <CardContent>
-                                    <CardDescription>
-                                        I've been making music my whole life, both in music production software
-                                        and with actual instruments.
-                                    </CardDescription>
-                                </CardContent>
-                            </Card>
-                        </a>
-                    </div>
+                    <HomeScreenNav title="Musician" Icon={MusicIcon} path="/music">
+                        I've been making music my whole life, both in music production software
+                        and with actual instruments.
+                    </HomeScreenNav>
 
-                    <div class="h-fit p-[2px] rounded-xl hover:bg-gradient-to-r from-red-500 via-purple-500 to-blue-500">
-                        <a href="/athletics">
-                            <Card className="grow">
-                                <CardHeader>
-                                    <CardTitle>
-                                        Athlete
-                                    </CardTitle>
-                                    <CardAction>
-                                        <SportShoeIcon />
-                                    </CardAction>
-                                </CardHeader>
-                                <CardContent>
-                                    <CardDescription>
-                                        I've been competing in track and field for 4 years, as a high jumper and
-                                        pole vaulter.
-                                    </CardDescription>
-                                </CardContent>
-                            </Card>
-                        </a>
-                    </div>
+                    <HomeScreenNav title="Athlete" Icon={SportShoeIcon} path="/athletics">
+                        I've been competing in track and field for 4 years, as a high jumper and
+                        pole vaulter.
+                    </HomeScreenNav>
 
-                    <div class="h-fit p-[2px] rounded-xl hover:bg-gradient-to-r from-red-500 via-purple-500 to-blue-500">
-                        <a href="/misc">
-                            <Card className="grow">
-                                <CardHeader>
-                                    <CardTitle>
-                                        And more!
-                                    </CardTitle>
-                                    <CardAction>
-                                        <PlusIcon />
-                                    </CardAction>
-                                </CardHeader>
-                                <CardContent>
-                                    <CardDescription>
-                                        Of course, I can't fit all of my hobbies into three buckets.
-                                        Here are some misc. projects.
-                                    </CardDescription>
-                                </CardContent>
-                            </Card>
-                        </a>
-                    </div>
+                    <HomeScreenNav title="And more!" Icon={PlusIcon} path="/misc">
+                        Of course, I can't fit all of my hobbies into three buckets.
+                        Here are some misc. projects.
+                    </HomeScreenNav>
                 </div>
             </div>
         </div>
