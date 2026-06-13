@@ -1,6 +1,5 @@
 ---
 import Cursor from "../3d/cursor.tsx";
-import {Card,CardHeader,CardTitle,CardContent,CardAction,CardDescription,CardFooter} from "@/components/ui/card.tsx";
 import MainLayout from "@/layouts/mainLayout.astro";
 import {CodeXmlIcon, MusicIcon, SportShoeIcon, PlusIcon} from "@lucide/astro";
 import HomeScreenNav from "@/components/homeScreenNav.astro";
@@ -23,20 +22,27 @@ import HomeScreenNav from "@/components/homeScreenNav.astro";
             delay: 1
         });
     })
+
+    gsap.to(".move",{
+        top: -1.2 * 250 + "lh",
+        duration: 200,
+        repeat: -1,
+        ease: "linear",
+    })
 </script>
 
 <MainLayout>
     <div class="overflow-y-hidden">
-        <div class="p-3 h-[101vh] flex items-center border-b-1 justify-center" id="header">
+        <div class="p-3 h-[101vh] flex items-center border-b-1 justify-center z-10 bg-background" id="header">
             <h1 class="text-5xl" id="title">Casey Masonek</h1> <h1 class="text-5xl" id="header"></h1>
 
         </div>
-        <div class="flex flex-row w-full h-[91vh] relative">
-            <div class="absolute top-0 w-1/2 overflow-clip">
+        <div class="flex flex-row w-full h-[91vh] relative overflow-clip">
+            <div class="absolute top-0 w-1/2 move z-0 overflow-clip">
                 <div class="flex w-[140%] rotate-0 left-[-3px] flex-wrap items-center">
                     {Array.from({length: 1000}).map((item) => {
                         return ["Programmer", "Musician", "Athlete", "Learner", "Friend"].map(item => (
-                                <span class="abw-fit text-xl text-neutral-200 dark:text-accent">{item}&nbsp;·&nbsp;</span>
+                                <span class="text-xl text-neutral-200 dark:text-accent">{item}&nbsp;·&nbsp;</span>
                         ))
                     })}
                 </div>
