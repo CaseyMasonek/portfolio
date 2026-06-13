@@ -1,7 +1,8 @@
 ---
 import '../styles/global.css'
 import Cursor from "../3d/cursor.tsx";
-import nodeBuilder from "three/src/nodes/core/NodeBuilder";
+import {Card,CardHeader,CardTitle,CardContent,CardAction,CardDescription,CardFooter} from "@/components/ui/card.tsx";
+import {Button} from "@/components/ui/button.tsx";
 ---
 
 <html lang="en">
@@ -50,7 +51,7 @@ import nodeBuilder from "three/src/nodes/core/NodeBuilder";
 
         </script>
 	</head>
-	<body class="overflow-y-hidden">
+        <body class="overflow-y-hidden dark">
         <div class="p-3 h-[101vh] flex items-center border-b-1 justify-center" id="header">
             <h1 class="text-5xl" id="title">Casey Masonek</h1> <h1 class="text-5xl" id="header"></h1>
 
@@ -60,7 +61,7 @@ import nodeBuilder from "three/src/nodes/core/NodeBuilder";
                 <div class="flex w-[140%] rotate-0 left-[-3px] flex-wrap items-center">
                     {Array.from({length: 1000}).map((item) => {
                         return ["Programmer", "Musician", "Athlete", "Learner", "Friend"].map(item => (
-                                <span class="abw-fit text-xl text-neutral-700">{item}&nbsp;·&nbsp;</span>
+                                <span class="abw-fit text-xl text-neutral-200 dark:text-accent">{item}&nbsp;·&nbsp;</span>
                         ))
                     })}
                 </div>
@@ -68,8 +69,76 @@ import nodeBuilder from "three/src/nodes/core/NodeBuilder";
             <div class="w-1/2 flex justify-center items-center">
                 <Cursor client:only={"react"} />
             </div>
-            <div class="border-l-1 p-3">
-                cool stuff
+            <div class="border-l-1 p-3 w-1/2">
+                <div class="max-h-1/2 overflow-y-scroll">
+                <h2 class="text-3xl mb-3">Hi, I'm Casey!</h2>
+
+                <p class="text-muted-foreground">
+                    Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                    <br />
+                    Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                    <br />
+                    Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                </p>
+                </div>
+                <hr class="my-3" />
+
+                <div class="w-full grow grid flex-row grid-cols-2 gap-5">
+                    <Card className="grow hover:outline-2">
+                        <CardHeader>
+                            <CardTitle>
+                                Programmer
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <CardDescription>
+                                While only really beginning 4 years ago, I've really been coding my whole life.
+                            </CardDescription>
+                        </CardContent>
+                    </Card>
+
+                    <Card className="grow hover:outline-2">
+                        <CardHeader>
+                            <CardTitle>
+                                Musician
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <CardDescription>
+                                I've been making music my whole life, both in music production software
+                                and with actual instruments.
+                            </CardDescription>
+                        </CardContent>
+                    </Card>
+
+                    <Card className="grow hover:outline-2">
+                        <CardHeader>
+                            <CardTitle>
+                                Athlete
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <CardDescription>
+                                I've been competing in track and field for 4 years, as a high jumper and
+                                pole vaulter.
+                            </CardDescription>
+                        </CardContent>
+                    </Card>
+
+                    <Card className="grow hover:outline-2">
+                        <CardHeader>
+                            <CardTitle>
+                                And more!
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <CardDescription>
+                                Of course, I can't fit all of my hobbies into three buckets.
+                                Here are the miscellaneous projects I've done.
+                            </CardDescription>
+                        </CardContent>
+                    </Card>
+                </div>
             </div>
         </div>
 	</body>
