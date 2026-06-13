@@ -1,8 +1,8 @@
 ---
 import Cursor from "../3d/cursor.tsx";
 import {Card,CardHeader,CardTitle,CardContent,CardAction,CardDescription,CardFooter} from "@/components/ui/card.tsx";
-import {Button} from "@/components/ui/button.tsx";
 import MainLayout from "@/layouts/mainLayout.astro";
+import {CodeXmlIcon, MusicIcon, SportShoeIcon, PlusIcon} from "@lucide/astro";
 ---
 
 
@@ -58,60 +58,88 @@ import MainLayout from "@/layouts/mainLayout.astro";
                 <hr class="my-3" />
 
                 <div class="w-full grow grid flex-row grid-cols-2 gap-5">
-                    <Card className="grow hover:outline-2">
-                        <CardHeader>
-                            <CardTitle>
-                                Programmer
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <CardDescription>
-                                While only really beginning 4 years ago, I've really been coding my whole life.
-                            </CardDescription>
-                        </CardContent>
-                    </Card>
+                    <div class="h-fit p-[2px] rounded-xl hover:bg-gradient-to-r from-red-500 via-purple-500 to-blue-500">
+                        <a href="/programming">
+                            <Card className="grow">
+                                <CardHeader>
+                                    <CardTitle>
+                                        Programmer
+                                    </CardTitle>
+                                    <CardAction>
+                                        <CodeXmlIcon />
+                                    </CardAction>
+                                </CardHeader>
+                                <CardContent>
+                                    <CardDescription>
+                                        While only really beginning 4 years ago, I've really been coding my whole life.
+                                    </CardDescription>
+                                </CardContent>
+                            </Card>
+                        </a>
+                    </div>
 
-                    <Card className="grow hover:outline-2">
-                        <CardHeader>
-                            <CardTitle>
-                                Musician
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <CardDescription>
-                                I've been making music my whole life, both in music production software
-                                and with actual instruments.
-                            </CardDescription>
-                        </CardContent>
-                    </Card>
+                    <div class="h-fit p-[2px] rounded-xl hover:bg-gradient-to-r from-red-500 via-purple-500 to-blue-500">
+                        <a href="/music">
+                            <Card className="grow">
+                                <CardHeader>
+                                    <CardTitle>
+                                        Musician
+                                    </CardTitle>
+                                    <CardAction>
+                                        <MusicIcon />
+                                    </CardAction>
+                                </CardHeader>
+                                <CardContent>
+                                    <CardDescription>
+                                        I've been making music my whole life, both in music production software
+                                        and with actual instruments.
+                                    </CardDescription>
+                                </CardContent>
+                            </Card>
+                        </a>
+                    </div>
 
-                    <Card className="grow hover:outline-2">
-                        <CardHeader>
-                            <CardTitle>
-                                Athlete
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <CardDescription>
-                                I've been competing in track and field for 4 years, as a high jumper and
-                                pole vaulter.
-                            </CardDescription>
-                        </CardContent>
-                    </Card>
+                    <div class="h-fit p-[2px] rounded-xl hover:bg-gradient-to-r from-red-500 via-purple-500 to-blue-500">
+                        <a href="/athletics">
+                            <Card className="grow">
+                                <CardHeader>
+                                    <CardTitle>
+                                        Athlete
+                                    </CardTitle>
+                                    <CardAction>
+                                        <SportShoeIcon />
+                                    </CardAction>
+                                </CardHeader>
+                                <CardContent>
+                                    <CardDescription>
+                                        I've been competing in track and field for 4 years, as a high jumper and
+                                        pole vaulter.
+                                    </CardDescription>
+                                </CardContent>
+                            </Card>
+                        </a>
+                    </div>
 
-                    <Card className="grow hover:outline-2">
-                        <CardHeader>
-                            <CardTitle>
-                                And more!
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <CardDescription>
-                                Of course, I can't fit all of my hobbies into three buckets.
-                                Here are the miscellaneous projects I've done.
-                            </CardDescription>
-                        </CardContent>
-                    </Card>
+                    <div class="h-fit p-[2px] rounded-xl hover:bg-gradient-to-r from-red-500 via-purple-500 to-blue-500">
+                        <a href="/misc">
+                            <Card className="grow">
+                                <CardHeader>
+                                    <CardTitle>
+                                        And more!
+                                    </CardTitle>
+                                    <CardAction>
+                                        <PlusIcon />
+                                    </CardAction>
+                                </CardHeader>
+                                <CardContent>
+                                    <CardDescription>
+                                        Of course, I can't fit all of my hobbies into three buckets.
+                                        Here are some misc. projects.
+                                    </CardDescription>
+                                </CardContent>
+                            </Card>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
