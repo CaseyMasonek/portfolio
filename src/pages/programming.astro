@@ -1,22 +1,8 @@
 ---
-import MainLayout from "@/layouts/mainLayout.astro";
-import Header from "@/components/header.astro";
+import CategoryLayout from "@/layouts/categoryLayout.astro";
 ---
-
-<MainLayout>
-    <Header />
-
-    <div class="h-100 flex items-center justify-center">
-        <h2 class="w-full text-center text-5xl">
-            Featured Coding Projects
-        </h2>
+<CategoryLayout title="Featured Coding Projects">
+    <div>
+        my content
     </div>
-
-    <div class="h-[40vh] rounded-4xl m-5 mt-0 outline-3 flex items-center justify-center">
-        <div>
-            <h2 class="text-4xl w-full text-center">RoadLike</h2>
-            <p class="w-full text-center text-muted-foreground">OGPC 2026 Award Winner</p>
-        </div>
-    </div>
-
-</MainLayout>
+</CategoryLayout>

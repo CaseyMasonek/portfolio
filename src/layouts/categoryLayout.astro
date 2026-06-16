@@ -1,0 +1,22 @@
+---
+import MainLayout from "@/layouts/mainLayout.astro";
+import Header from "@/components/header.astro";
+
+const {title} = Astro.props
+---
+
+<MainLayout>
+    <Header />
+
+    <div class="bg-gradient-to-r from-red-500 via-purple-500 to-blue-500">
+        <div class="h-100 mt-[-7vh] bg-gradient-to-b to-background flex items-center justify-center">
+            <h2 class="w-full text-center text-5xl">
+                {title}
+            </h2>
+        </div>
+    </div>
+
+    <div>
+        <slot />
+    </div>
+</MainLayout>

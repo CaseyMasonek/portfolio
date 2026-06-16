@@ -20,7 +20,13 @@ import HomeScreenNav from "@/components/homeScreenNav.astro";
             height: "9vh",
             overflowY: "auto",
             delay: 1
-        });
+        })
+    }).then(() => {
+        gsap.to(".gradient", {
+            top: 0,
+            duration: 1,
+            delay: 0.5
+        })
     })
 
     gsap.to(".move",{
@@ -29,20 +35,33 @@ import HomeScreenNav from "@/components/homeScreenNav.astro";
         repeat: -1,
         ease: "linear",
     })
+
+    gsap.to(".gradient",{
+        duration: 10,
+        repeat: -1,
+        ease: "linear",
+        backgroundPositionX: "100%"
+    })
 </script>
 
 <MainLayout>
+    <div class="absolute top-[-1000px] h-100 bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 w-full z-[-1] gradient">
+        <div class="h-100 bg-gradient-to-b to-background">
+            &nbsp;
+        </div>
+    </div>
     <div class="overflow-y-hidden">
-        <div class="p-3 h-[101vh] flex items-center border-b-1 justify-center z-10 bg-background" id="header">
-            <h1 class="text-5xl" id="title">Casey Masonek</h1> <h1 class="text-5xl" id="header"></h1>
-
+        <div class="p-3 h-[101vh] flex items-center border-b-1 justify-center z-10" id="header">
+            <div class=" gradient w-full flex items-center bg-size-[50%]">
+                <h1 class="text-5xl w-full text-center" id="title">Casey Masonek</h1>
+            </div>
         </div>
         <div class="flex flex-row w-full h-[91vh] relative overflow-clip">
             <div class="absolute top-0 w-1/2 move z-0 overflow-clip">
-                <div class="flex w-[140%] rotate-0 left-[-3px] flex-wrap items-center">
+                <div class="flex w-[140%] rotate-0 left-[-3px] flex-wrap items-center opacity-5">
                     {Array.from({length: 1000}).map((item) => {
                         return ["Programmer", "Musician", "Athlete", "Learner", "Friend"].map(item => (
-                                <span class="text-xl text-neutral-200 dark:text-accent">{item}&nbsp;·&nbsp;</span>
+                                <span class="text-xl text-black dark:text-white">{item}&nbsp;·&nbsp;</span>
                         ))
                     })}
                 </div>
@@ -50,38 +69,31 @@ import HomeScreenNav from "@/components/homeScreenNav.astro";
             <div class="w-1/2 flex justify-center items-center">
                 <Cursor client:only={"react"} />
             </div>
-            <div class="border-l-1 p-3 w-1/2">
-                <div class="max-h-1/2 overflow-y-scroll">
+            <div class="border-l-1 p-10 w-1/2">
+                <div class="h-1/2 overflow-y-scrol">
                     <h2 class="text-3xl mb-3">Hi, I'm Casey!</h2>
 
                     <p class="text-muted-foreground">
-                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-                        <br />
-                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-                        <br />
-                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos <himenaeos class=""></himenaeos>
                     </p>
                 </div>
-                <hr class="my-3" />
+                <hr class="my-5" />
 
                 <div class="w-full grow grid flex-row grid-cols-2 gap-5">
                     <HomeScreenNav title="Programmer" Icon={CodeXmlIcon} path="/programming">
-                        While only really beginning 4 years ago, I've really been coding my whole life.
+                        Lorem ipsum dolor sit amet consectetur
                     </HomeScreenNav>
 
                     <HomeScreenNav title="Musician" Icon={MusicIcon} path="/music">
-                        I've been making music my whole life, both in music production software
-                        and with actual instruments.
+                        Lorem ipsum dolor sit amet consectetur
                     </HomeScreenNav>
 
                     <HomeScreenNav title="Athlete" Icon={SportShoeIcon} path="/athletics">
-                        I've been competing in track and field for 4 years, as a high jumper and
-                        pole vaulter.
+                        Lorem ipsum dolor sit amet consectetur
                     </HomeScreenNav>
 
                     <HomeScreenNav title="And more!" Icon={PlusIcon} path="/misc">
-                        Of course, I can't fit all of my hobbies into three buckets.
-                        Here are some misc. projects.
+                        Lorem ipsum dolor sit amet consectetur
                     </HomeScreenNav>
                 </div>
             </div>
