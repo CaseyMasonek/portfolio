@@ -1,6 +1,7 @@
 ---
 import MainLayout from "@/layouts/mainLayout.astro";
 import Header from "@/components/header.astro";
+import Footer from "@/components/footer.astro";
 
 const {title} = Astro.props
 ---
@@ -16,7 +17,9 @@ const {title} = Astro.props
         </div>
     </div>
 
-    <div>
+    <div class="min-h-[calc(86vh-25rem)]">
         <slot />
     </div>
+
+    <Footer />
 </MainLayout>

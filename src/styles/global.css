@@ -15,6 +15,10 @@
         @apply font-[Inter] bg-background text-foreground;
     }
 
+    .monospace {
+        @apply font-[Space_Mono] text-center;
+    }
+
     h1 {
         @apply font-[BBH_Bartle];
     }
@@ -22,6 +26,7 @@
   * {
     @apply border-border outline-ring/50;
     }
+
   html {
     @apply font-sans;
     }
@@ -143,3 +148,10 @@ canvas {
     --sidebar-ring: oklch(0.556 0 0);
 }
 
+.hexagons {
+    background-color: #ffffff;
+    opacity: 0.8;
+    background-image: conic-gradient(from 60deg at 56.25% calc(425% / 6), transparent 0deg, transparent 0.5deg, #000000 0.5deg, #000000 119.5deg, transparent 119.5deg, transparent 120deg), conic-gradient(from 60deg at 56.25% calc(425% / 6), transparent 0deg, transparent 0.5deg, #000000 0.5deg, #000000 119.5deg, transparent 119.5deg, transparent 120deg), conic-gradient(from 180deg at 43.75% calc(425% / 6), transparent 0deg, transparent 0.5deg, #000000 0.5deg, #000000 119.5deg, transparent 119.5deg, transparent 120deg), conic-gradient(from 180deg at 43.75% calc(425% / 6), transparent 0deg, transparent 0.5deg, #000000 0.5deg, #000000 119.5deg, transparent 119.5deg, transparent 120deg), conic-gradient(from -60deg at 50% calc(175% / 12), transparent 0deg, transparent 0.5deg, #000000 0.5deg, #000000 119.5deg, transparent 119.5deg, transparent 120deg), conic-gradient(from -60deg at 50% calc(175% / 12), transparent 0deg, transparent 0.5deg, #000000 0.5deg, #000000 119.5deg, transparent 119.5deg, transparent 120deg);
+    background-position: 0 0, 10px 17px, 0 0, 10px 17px, 10px 0, 0 17px;
+    background-size: 20px 34px;
+}
