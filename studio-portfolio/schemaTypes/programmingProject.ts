@@ -29,9 +29,15 @@ export const programmingProjectType = defineType({
             validation: (rule) => rule.required(),
         }),
         defineField({
+            name: 'overview',
+            type: 'string',
+            validation: (rule) => rule.required(),
+        }),
+        defineField({
             name: 'body',
             type: 'array',
             of: [{type: 'block'}],
+            validation: (rule) => rule.required(),
         }),
         defineField({
             name: "link",
@@ -43,9 +49,15 @@ export const programmingProjectType = defineType({
             validation: (rule) => rule.required(),
         }),
         defineField({
+            name: "coverImage",
+            type: 'image',
+            validation: (rule) => rule.required(),
+        }),
+        defineField({
             name: "tech",
             type: "array",
             of: [{type: "techIcon"}],
+            validation: (rule) => rule.required(),
         })
     ],
 })

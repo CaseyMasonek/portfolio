@@ -1,0 +1,108 @@
+---
+import {sanityClient} from "sanity:client";
+import {ExternalLinkIcon} from "@lucide/astro";
+import ProgrammingProjectLayout from "@/layouts/programmingProjectLayout.astro";
+import TechIcon from "@/components/react/techIcon.tsx";
+import {
+    Breadcrumb,
+    BreadcrumbEllipsis,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbList,
+    BreadcrumbPage,
+    BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+
+export async function getStaticPaths()
+{
+    return await sanityClient.fetch('*[_type == "programmingProject"]{slug}').then((pages:any) => {
+        return pages.map((page:any) => ({
+            params: {
+                slug: page.slug.current
+            },
+            props: {
+                slug: page.slug.current
+            }
+        }))
+    });
+}
+
+const {slug} = Astro.props
+
+
+const project = await sanityClient.fetch(`*[_type == "programmingProject" && slug.current == "${slug}"][0]{
+    title,
+    description,
+    repo,
+    link,
+    body,
+    overview,
+    "coverImageUrl": coverImage.asset->url,
+    "tech": tech[] {
+        techName,
+        "imageUrl": icon.asset->url
+    }
+}`)
+---
+
+<ProgrammingProjectLayout>
+
+    <Breadcrumb className="mb-5">
+        <BreadcrumbList>
+            <BreadcrumbItem>
+                <BreadcrumbLink href="/programming">
+                    Programming Projects
+                </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+                <BreadcrumbItem>
+                    <BreadcrumbPage>
+                        {project.title}
+                    </BreadcrumbPage>
+                </BreadcrumbItem>
+            </BreadcrumbItem>
+        </BreadcrumbList>
+    </Breadcrumb>
+    
+    <div class="w-full">
+        <div class="grid grid-cols-2 gap-x-10 w-full">
+            <div class="w-full flex-col items-center justify-center hover:scale-101 duration-300">
+                <a class="w-full" href={project.link}>
+                    <div class=`w-full aspect-video relative bg-cover bg-no-repeat` style=`background-image: url(${project.coverImageUrl})`>
+                        <p class="absolute bottom-0 left-0 flex gap-x-2 bg-gray-500 p-1 pr-2 rounded-tr-xl opacity-90">
+                            <ExternalLinkIcon /> {project.link}
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <div class="p-3">
+                <h2 class="text-3xl">
+                    {project.title}
+                </h2>
+                <p class="text-lg text-muted-foreground my-3">
+                    {project.description}
+                </p>
+                <a href={project.repo} class="flex gap-x-1 align-bottom not-hover:underline text-sm">
+                    <ExternalLinkIcon size={20} /> View on GitHub
+                </a>
+                <div class="flex gap-x-5 mt-5">
+                    {project.tech.map((item:any) => (
+                            <TechIcon imageUrl={item.imageUrl} techName={item.techName} client:only="reach" />
+                    ))}
+                </div>
+                <p class="mt-3 text-sm">
+                    {project.overview}
+                </p>
+            </div>
+        </div>
+        <div class="p-3 mt-10">
+            <h2 class="text-3xl">
+                About {project.title}
+            </h2>
+            {project.body.map((item:any) => (
+                    <p class="max-w-[120ch] mt-5">{item.children[0].text}</p>
+            ))}
+        </div>
+    </div>
+</ProgrammingProjectLayout>
