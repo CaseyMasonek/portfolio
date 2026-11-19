@@ -3,20 +3,19 @@
 import {sanityClient} from "sanity:client";
 import CategoryLayout from "@/layouts/categoryLayout.astro";
 
-const projects = await sanityClient.fetch(`*[_type == 'programmingProject']{
+const projects = await sanityClient.fetch(`*[_type == 'programmingProject']  | order(publishedAt) {
     title,
     description,
     slug
 }`)
 ---
-<CategoryLayout title="Featured Coding Projects">
+<CategoryLayout title="Featured Projects">
     <div class="grid grid-cols-2 w-full">
         {projects.map((project:any) => (
             <a href={"/programming/" + project.slug.current}>
                 <div class="border-2 m-3 p-3 h-30 flex flex-col items-center justify-center rounded-xl hover:scale-101 hover:bg-sidebar-accent duration-300">
                     <h3 class="font-bold">{project.title}</h3>
                     <p class="text-muted-foreground">{project.description}</p>
-
                 </div>
             </a>
         ))}
